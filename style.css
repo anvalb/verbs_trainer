@@ -9,21 +9,30 @@ body {
     width: 350px;
 }
 .ruPhrase {
-    border: 1px solid black;
-    padding: 1px 8px;
-    width: 291px;
+    background-color: #f0f0f0;
+    padding: 2px 8px;
+    width: 293px;
 }
 .enPhrase {
-    border: 1px solid black;
-    width: 200px;
-    padding: 2px 8px;
+    background-color: #f0f0f0;
+    border: none;
+    width: 218px;
+    padding: 3px 8px;
     font-size: 14px;
     margin: 0;
     margin-top: 3px;
     outline: none;
 }
 .enPhrase:focus {
-    border-color: #7f57be;
+    background-color: #e9e4f0;
+}
+.enPhrase.true {
+    background-color: #d9fbe1;
+    color: green;
+}
+.enPhrase.false {
+    background-color: #FFE5EC;
+    color: #AC0400;
 }
 .but {
     display: inline-block;
@@ -39,24 +48,12 @@ body {
 }
 .but:hover {
     background-color: #414141;
-    /*select: none;*/
 }
-.fl {
-    float: left;
+.ok {
+    width: 50px;
+    text-align: center;
 }
-.outPhrase {
-    border: 1px solid #00a300;
-    background-color: #d9fbe1;
-    color: green;
-    padding: 1px 8px;
-    width: 291px;
-    height: 18px;
-    margin-top: 3px;
-    display: none;
-}
-
 .outPhraseReal {
-    border: 1px solid black;
     color: black;
     padding: 1px 8px;
     width: 291px;
@@ -64,11 +61,23 @@ body {
     margin-top: 3px;
     display: none;
 }
-
-
-
-
-
+.iTrue {
+    left: -33px; top: 25px;
+    background-color: #d9fbe1;
+    width: 30px; height: 22px; line-height: 22px;
+    vertical-align: middle;
+    text-align: center;
+    display: none;
+}
+.iFalse {
+    left: -33px; top: 0;
+    background-color: #ffe5ec;
+    width: 30px; height: 22px; line-height: 22px;
+    vertical-align: middle;
+    text-align: center;
+    display: none;
+}
+/*********************************************************************************************************** clearfix */
 .clearfix:after {
     content: ".";
     display: block;
@@ -85,4 +94,14 @@ html[xmlns] .clearfix {
 }
 * html .clearfix {
     height: 1%;
+}
+/**********************************************************************************************************************/
+.fl {
+    float: left;
+}
+.rl {
+    position: relative;
+}
+.abs {
+    position: absolute;
 }

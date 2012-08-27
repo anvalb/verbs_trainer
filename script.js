@@ -7,8 +7,8 @@ $(function(){
         verbs = new Array(
             [true, "видел", "видела", "вижу", "буду видеть", "видишь", "будешь видеть", "видели", "видим",
                 "будем видеть", "видят", "будут видеть", "видит", "будет видеть", "see", "saw", "seen"]
-            ,[false, "знал", "знала", "знаю", "буду знать", "знаешь", "будешь знать", "знали", "знаем", "будем знать",
-                "знают", "будут знать", "знает", "будет знать", "know"]
+            ,[true, "знал", "знала", "знаю", "буду знать", "знаешь", "будешь знать", "знали", "знаем", "будем знать",
+                "знают", "будут знать", "знает", "будет знать", "know","knew","known"]
         ),
         verbsL = verbs.length,
 
@@ -115,6 +115,7 @@ $(function(){
             }
 
             // ending of english verb
+
             if(formPhrase == 0 && enVerbsTime == "past"){
                 if (i[0] == true){
                     enVerbsNow = i[15];
@@ -133,6 +134,7 @@ $(function(){
             }
 
             //enPhrase
+
             enPhrase = "empty";
             if(enVerbsTime == "past"){
                 switch (formPhrase){
@@ -186,12 +188,10 @@ $(function(){
                 }
             }
             console.log("+++++++++++++++");
-            console.log(enPronounsNow);
-            console.log(ruPronounsNow);
             console.log(enPhrase);
-            console.log("+++++++++++++++");
 
             // ruPhrase
+
             if(formPhrase == 0){
                 ruPhrase = ruPronounsNow + " " + ruVerbsNow + ".";
             }
@@ -204,12 +204,7 @@ $(function(){
                 }
             }
 
-
-
-
-
-
-
+            enPhrase = enPhrase.slice(0, 1).toUpperCase() + enPhrase.slice(1);
             ruPhrase = ruPhrase.slice(0, 1).toUpperCase() + ruPhrase.slice(1);
             return {
                 ruPhrase: ruPhrase
@@ -220,35 +215,39 @@ $(function(){
             return $('.enPhrase').val();
         };
     var simpGen,
-        clicked;
-    $("body").on("click", ".startSimple", function(){
-        simpGen = simpleGenerator();
-        $('.ruPhrase').html(simpGen['ruPhrase']);
-        $('.outPhraseReal').html(simpGen['enPhrase']);
-        $('.outPhrase').hide();
-        $('.outPhraseReal').hide();
-        $('.enPhrase').val("");
-        $('.ok').removeClass("clicked")
-    });
+        clicked = 0,
+        iFalse = 0,
+        iTrue = 0;
     $("body").on("click", ".ok", function(){
-        $('.outPhrase').show().html(parsePhrase());
-        console.log(simpGen['enPhrase']);
-        console.log(parsePhrase());
-        if(simpGen['enPhrase'] != parsePhrase()){
-            $('.outPhrase').css({
-                'border-color':'#A32000',
-                'background-color':'#FBD8DC',
-                'color':'#AC0400'
-            });
-            console.log('false');
+        if(clicked == 0) {
+            // clean
+            $('.enPhrase').removeClass("true").removeClass("false");
+            $('.outPhraseReal').hide();
+            $('.enPhrase').val("");
+            $('.enPhrase').attr("placeholder","Enter text");
+            // start
+            simpGen = simpleGenerator();
+            $('.ruPhrase').html(simpGen['ruPhrase']);
+            $('.outPhraseReal').html(simpGen['enPhrase']);
+            $(this).html("ok");
+            clicked = 1;
         }
         else {
-            $('.outPhrase').css({
-                'border-color':'#00a300',
-                'background-color':'#d9fbe1',
-                'color':'green'
-            });
+            if (clicked = 1) {
+                if ((simpGen['enPhrase']).toLocaleLowerCase() != (parsePhrase().toLocaleLowerCase())) {
+                    $('.enPhrase').removeClass("true").addClass("false");
+                    iFalse++;
+                    $('.iFalse').fadeIn().html(iFalse);
+                }
+                else {
+                    $('.enPhrase').removeClass("false").addClass("true");
+                    iTrue++;
+                    $('.iTrue').fadeIn().html(iTrue);
+                }
+                $('.outPhraseReal').fadeIn();
+                $(this).html("next");
+                clicked = 0;
+            }
         }
-        $('.outPhraseReal').show();
     });
 });
