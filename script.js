@@ -6,14 +6,12 @@ $(function(){
             ,["знал", "знала", "знаю", "буду знать", "знаешь", "будешь знать", "знали", "знаем", "будем знать", "знают", "будут знать", "знает", "будет знать", "know"]
         ),
         verbsL = verbs.length,
-        ruPronounsNow,
-        ruPhrase,
-        verbsNow,
-        i,
-        tempArray,
         simpleGenerator = function(){
-            ruPronounsNow = ruPronouns[Math.floor(Math.random()*5)];
-            i = verbs[Math.floor(Math.random()*(verbsL))];
+            var ruPronounsNow = ruPronouns[Math.floor(Math.random()*5)],
+                i = verbs[Math.floor(Math.random()*(verbsL))],
+                verbsNow,
+                tempArray;
+
             switch (ruPronounsNow){
                 case "я":
                     tempArray = new Array(i[0], i[1], i[2], i[3]);
@@ -40,8 +38,7 @@ $(function(){
                     verbsNow = tempArray[Math.floor(Math.random()*tempArray.length)];
                     break;
             }
-            ruPhrase = ruPronounsNow + " " + verbsNow;
-            return ruPhrase;
+            return ruPronounsNow + " " + verbsNow;
         };
 
     $("body").on("click", ".startSimple", function(){
