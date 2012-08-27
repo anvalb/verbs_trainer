@@ -217,37 +217,46 @@ $(function(){
     var simpGen,
         clicked = 0,
         iFalse = 0,
-        iTrue = 0;
-    $("body").on("click", ".ok", function(){
-        if(clicked == 0) {
-            // clean
-            $('.enPhrase').removeClass("true").removeClass("false");
-            $('.outPhraseReal').hide();
-            $('.enPhrase').val("");
-            $('.enPhrase').attr("placeholder","Enter text");
-            // start
-            simpGen = simpleGenerator();
-            $('.ruPhrase').html(simpGen['ruPhrase']);
-            $('.outPhraseReal').html(simpGen['enPhrase']);
-            $(this).html("ok");
-            clicked = 1;
-        }
-        else {
-            if (clicked = 1) {
-                if ((simpGen['enPhrase']).toLocaleLowerCase() != (parsePhrase().toLocaleLowerCase())) {
-                    $('.enPhrase').removeClass("true").addClass("false");
-                    iFalse++;
-                    $('.iFalse').fadeIn().html(iFalse);
-                }
-                else {
-                    $('.enPhrase').removeClass("false").addClass("true");
-                    iTrue++;
-                    $('.iTrue').fadeIn().html(iTrue);
-                }
-                $('.outPhraseReal').fadeIn();
-                $(this).html("next");
-                clicked = 0;
+        iTrue = 0,
+        clickButtonOk = function () {
+            if (clicked == 0) {
+                // clean
+                $('.enPhrase').removeClass("true").removeClass("false");
+                $('.outPhraseReal').hide();
+                $('.enPhrase').val("");
+                $('.enPhrase').attr("placeholder", "Enter text");
+                // start
+                simpGen = simpleGenerator();
+                $('.ruPhrase').html(simpGen['ruPhrase']);
+                $('.outPhraseReal').html(simpGen['enPhrase']);
+                $(this).html("ok");
+                clicked = 1;
             }
+            else {
+                if (clicked = 1) {
+                    if ((simpGen['enPhrase']).toLocaleLowerCase() != (parsePhrase().toLocaleLowerCase())) {
+                        $('.enPhrase').removeClass("true").addClass("false");
+                        iFalse++;
+                        $('.iFalse').fadeIn().html(iFalse);
+                    }
+                    else {
+                        $('.enPhrase').removeClass("false").addClass("true");
+                        iTrue++;
+                        $('.iTrue').fadeIn().html(iTrue);
+                    }
+                    $('.outPhraseReal').fadeIn();
+                    $(this).html("next");
+                    clicked = 0;
+                }
+            }
+        };
+    $("body").on("click", ".ok", clickButtonOk);
+    var enterKey = function () {
+        $('.ok').trigger("click");
+    };
+    $(document).keydown(function (e) {
+        if (e.keyCode == 13 && typeof enterKey === 'function') {
+            enterKey();
         }
     });
 });
