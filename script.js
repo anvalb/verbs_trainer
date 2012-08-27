@@ -139,10 +139,10 @@ $(function(){
             if(enVerbsTime == "past"){
                 switch (formPhrase){
                     case 0:
-                        enPhrase = enPronounsNow + " " + enVerbsNow + ".";
+                        enPhrase = enPronounsNow + " " + enVerbsNow;
                         break;
                     case 1:
-                        enPhrase = enPronounsNow + " didn't " + enVerbsNow + ".";
+                        enPhrase = enPronounsNow + " didn't " + enVerbsNow;
                         break;
                     case 2:
                         enPhrase = "Did " + enPronounsNow + " " + enVerbsNow + "?";
@@ -153,14 +153,14 @@ $(function(){
                 if(enVerbsTime == "present"){
                     switch (formPhrase){
                         case 0:
-                            enPhrase = enPronounsNow + " " + enVerbsNow + ".";
+                            enPhrase = enPronounsNow + " " + enVerbsNow;
                             break;
                         case 1:
                             if(enPronounsNow == "he" || enPronounsNow == "she"){
-                                enPhrase = enPronounsNow + " doesn't " + enVerbsNow + ".";
+                                enPhrase = enPronounsNow + " doesn't " + enVerbsNow;
                             }
                             else {
-                                enPhrase = enPronounsNow + " don't " + enVerbsNow + ".";
+                                enPhrase = enPronounsNow + " don't " + enVerbsNow;
                             }
                             break;
                         case 2:
@@ -176,10 +176,10 @@ $(function(){
                 else {
                     switch (formPhrase){
                         case 0:
-                            enPhrase = enPronounsNow + " will " + enVerbsNow + ".";
+                            enPhrase = enPronounsNow + " will " + enVerbsNow;
                             break;
                         case 1:
-                            enPhrase = enPronounsNow + " will not " + enVerbsNow + ".";
+                            enPhrase = enPronounsNow + " will not " + enVerbsNow;
                             break;
                         case 2:
                             enPhrase = "Will " + enPronounsNow + " " + enVerbsNow + "?";
@@ -193,11 +193,11 @@ $(function(){
             // ruPhrase
 
             if(formPhrase == 0){
-                ruPhrase = ruPronounsNow + " " + ruVerbsNow + ".";
+                ruPhrase = ruPronounsNow + " " + ruVerbsNow;
             }
             else {
                 if(formPhrase == 1) {
-                    ruPhrase = ruPronounsNow + " " + " не " + ruVerbsNow + ".";
+                    ruPhrase = ruPronounsNow + " " + " не " + ruVerbsNow;
                 }
                 else{
                     ruPhrase = ruPronounsNow + " " + ruVerbsNow + "?";
