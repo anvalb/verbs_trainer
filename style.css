@@ -1,9 +1,16 @@
 body {
     font: normal 14px/1.3 sans-serif;
 }
+.page {
+    margin: 0 auto;
+    width: 350px;
+}
+.page > .clearfix {
+    width: 350px;
+}
 .ruPhrase {
     border: 1px solid black;
-    padding: 0 8px;
+    padding: 1px 8px;
     width: 291px;
 }
 .enPhrase {
@@ -13,7 +20,7 @@ body {
     font-size: 14px;
     margin: 0;
     margin-top: 3px;
-    outline: none
+    outline: none;
 }
 .enPhrase:focus {
     border-color: #7f57be;
@@ -27,10 +34,55 @@ body {
     text-decoration: none;
     color: white;
     background-color: black;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .but:hover {
     background-color: #414141;
+    /*select: none;*/
 }
 .fl {
     float: left;
+}
+.outPhrase {
+    border: 1px solid #00a300;
+    background-color: #d9fbe1;
+    color: green;
+    padding: 1px 8px;
+    width: 291px;
+    height: 18px;
+    margin-top: 3px;
+    display: none;
+}
+
+.outPhraseReal {
+    border: 1px solid black;
+    color: black;
+    padding: 1px 8px;
+    width: 291px;
+    height: 18px;
+    margin-top: 3px;
+    display: none;
+}
+
+
+
+
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+html[xmlns] .clearfix {
+    display: block;
+}
+* html .clearfix {
+    height: 1%;
 }

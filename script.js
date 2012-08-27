@@ -1,51 +1,79 @@
 $(function(){
+
+    // ARRAYS
+
     var ruPronouns = new Array("я" ,"ты" ,"мы" ,"они" ,"он" ,"она"),
         enPronouns = new Array("I" ,"you" ,"we" ,"they" ,"he" ,"she"),
         verbs = new Array(
-            ["видел", "видела", "вижу", "буду видеть", "видишь", "будешь видеть", "видели", "видим", "будем видеть", "видят", "будут видеть", "видит", "будет видеть", "see", "saw", "seen"]
-            ,["знал", "знала", "знаю", "буду знать", "знаешь", "будешь знать", "знали", "знаем", "будем знать", "знают", "будут знать", "знает", "будет знать", "know"]
+            [true, "видел", "видела", "вижу", "буду видеть", "видишь", "будешь видеть", "видели", "видим", "будем видеть", "видят", "будут видеть", "видит", "будет видеть", "see", "saw", "seen"]
+            ,[false, "знал", "знала", "знаю", "буду знать", "знаешь", "будешь знать", "знали", "знаем", "будем знать", "знают", "будут знать", "знает", "будет знать", "know"]
         ),
         verbsL = verbs.length,
-        simpleGenerator = function(){
-            var ruPronounsNow = ruPronouns[Math.floor(Math.random()*5)],
-                i = verbs[Math.floor(Math.random()*(verbsL))],
+    // FUNCTIONS
+        simpleGenerator = function () {
+            var ruPronounsNow = ruPronouns[Math.floor(Math.random() * 5)],
+                ruPhrase,
                 verbsNow,
-                tempArray;
+                i = verbs[Math.floor(Math.random() * (verbsL))],
+                tempArray,
+                formPhrase;
 
-            switch (ruPronounsNow){
-                case "я":
-                    // [i[0], i[1], i[2], i[3]]
-                    // также можно заменить на i.slice(0, 3);
-                    // http://javascript.ru/Array/slice
-                    tempArray = [i[0], i[1], i[2], i[3]];
-                    verbsNow = tempArray[Math.floor(Math.random()*tempArray.length)];
+            switch (ruPronounsNow) {
+                case ruPronouns[0]:
+                    tempArray = [i[1], i[2], i[3], i[4]]; // i.slice(1, 4);
+                    verbsNow = tempArray[Math.floor(Math.random() * tempArray.length)];
                     break;
-                case "ты":
-                    tempArray = [i[0], i[1], i[4], i[5]];
-                    verbsNow = tempArray[Math.floor(Math.random()*tempArray.length)];
+                case ruPronouns[1]:
+                    tempArray = new Array(i[1], i[2], i[5], i[6]);
+                    verbsNow = tempArray[Math.floor(Math.random() * tempArray.length)];
                     break;
-                case "мы":
-                    tempArray = [i[6], i[7], i[8]];
-                    verbsNow = tempArray[Math.floor(Math.random()*tempArray.length)];
+                case ruPronouns[2]:
+                    tempArray = new Array(i[7], i[8], i[9]);
+                    verbsNow = tempArray[Math.floor(Math.random() * tempArray.length)];
                     break;
-                case "они":
-                    tempArray = [i[6], i[9], i[10]];
-                    verbsNow = tempArray[Math.floor(Math.random()*tempArray.length)];
+                case ruPronouns[3]:
+                    tempArray = new Array(i[7], i[10], i[11]);
+                    verbsNow = tempArray[Math.floor(Math.random() * tempArray.length)];
                     break;
-                case "он":
-                    tempArray = [i[0], i[11], i[12]];
-                    verbsNow = tempArray[Math.floor(Math.random()*tempArray.length)];
+                case ruPronouns[4]:
+                    tempArray = new Array(i[1], i[12], i[13]);
+                    verbsNow = tempArray[Math.floor(Math.random() * tempArray.length)];
                     break;
-                case "она":
-                    tempArray = [i[1], i[11], i[12]];
-                    verbsNow = tempArray[Math.floor(Math.random()*tempArray.length)];
+                case ruPronouns[5]:
+                    tempArray = new Array(i[2], i[12], i[13]);
+                    verbsNow = tempArray[Math.floor(Math.random() * tempArray.length)];
                     break;
             }
-            return ruPronounsNow + " " + verbsNow;
+            formPhrase = Math.floor(Math.random()*3);
+            console.log(formPhrase);
+            if(formPhrase == 0){
+                ruPhrase = ruPronounsNow + " " + verbsNow + ".";
+            }
+            else {
+                if(formPhrase == 1) {
+                    ruPhrase = ruPronounsNow + " " + " не " + verbsNow + ".";
+                }
+                else{
+                    ruPhrase = ruPronounsNow + " " + verbsNow + "?";
+                }
+            }
+            ruPhrase = ruPhrase.slice(0, 1).toUpperCase() + ruPhrase.slice(1);
+            return ruPhrase;
+        },
+        parsePhrase = function (){
+            return $('.enPhrase').val();
         };
 
     $("body").on("click", ".startSimple", function(){
-        $('.ruPhrase').html(simpleGenerator())
+        $('.ruPhrase').html(simpleGenerator());
+        $('.outPhrase').hide();
+        $('.outPhraseReal').hide();
+        $('.enPhrase').val("");
+    });
+    $("body").on("click", ".ok", function(){
+        $('.outPhrase').show().html(parsePhrase());
+        $('.outPhraseReal').show().html("blabla");
+        $('.enPhrase').val("");
     });
     $('.ruPhrase').html(simpleGenerator());
 });
