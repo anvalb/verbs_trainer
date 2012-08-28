@@ -4,19 +4,33 @@
     <meta charset="utf-8">
     <meta name="author" content="Andrew Bublikov">
     <title>#</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="options.js"></script>
 </head>
 <body>
-<div class="page rl">
-    <div class="clearfix">
-        <div class="ruPhrase">&nbsp;</div>
-        <input type="text" class="enPhrase fl">
-        <a href="#" class="ok but">start</a>
-        <div class="outPhraseReal">&nbsp;</div>
-        <div class="abs iFalse"></div>
-        <div class="abs iTrue"></div>
+<div class="wrapper">
+    <a href="#" class="options but">options</a>
+    <div class="page">
+        <div class="clearfix">
+            <div class="ruPhrase">&nbsp;</div>
+            <input type="text" class="enPhrase fl">
+            <a href="#" class="ok but">start</a>
+
+            <div class="outPhraseReal">&nbsp;</div>
+            <div class="abs iFalse"></div>
+            <div class="abs iTrue"></div>
+        </div>
+    </div>
+    <div class="optionsBlock">
+        <form action="#">
+            <h3>Style aplication:</h3>
+            <label><input type="radio" name="styleApp" id="lightStyle" onChange="saveOptions()">Light</label>
+            <label><input type="radio" name="styleApp" id="darkStyle" onChange="saveOptions()">Dark</label>
+        </form>
+        <a href="#" class="optionsClose but">close</a>
     </div>
 </div>
 </body>

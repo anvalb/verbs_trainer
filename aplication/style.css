@@ -4,9 +4,14 @@ body {
 .page {
     margin: 0 auto;
     width: 350px;
+    margin-top: 10px;
 }
 .page > .clearfix {
     width: 350px;
+    position: relative;
+}
+.wrapper {
+    position: relative;
 }
 .ruPhrase {
     background-color: #f0f0f0;
@@ -76,6 +81,27 @@ body {
     vertical-align: middle;
     text-align: center;
     display: none;
+}
+/******************************************************************************************************* optionsBlock */
+.optionsBlock {
+    background-color: white;
+    height: 500px;
+    width: 800px;
+    position: absolute;
+    left: 50%; margin-left: -400px;
+    top: 10px;
+    box-shadow: 0 0 700px 50px rgba(0, 0, 130, 0.2);
+    display: none;
+    border: 1px solid #c9c9c9;
+}
+.optionsClose {
+    position: absolute;
+    bottom: 0; right: 0;
+}
+.options {
+    position: absolute;
+    right: 0; top: -10px;
+    margin: 0;
 }
 /*********************************************************************************************************** clearfix */
 .clearfix:after {

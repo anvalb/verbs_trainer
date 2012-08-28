@@ -1,5 +1,11 @@
 $(function(){
-
+    // OPTIONS BLOCK
+    $('body').on("click", ".options", function () {
+        $('.optionsBlock').slideDown();
+    });
+    $('body').on("click", ".optionsClose", function () {
+        $('.optionsBlock').slideUp();
+    });
     // ARRAYS
 
     var ruPronouns = new Array("я" ,"ты" ,"мы" ,"они" ,"он" ,"она"),
