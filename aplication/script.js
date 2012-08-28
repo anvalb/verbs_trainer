@@ -1,11 +1,41 @@
 $(function(){
+
     // OPTIONS BLOCK
-    $('body').on("click", ".options", function () {
-        $('.optionsBlock').slideDown();
+
+    var clickedOpt = 0;
+    $('body').on("click", ".optionsBut", function () {
+        if (clickedOpt == 0) {
+            $('.optionsBlock').show().animate({
+                top: "+=501"
+            }, 200 );
+            $('.optionsBlock').addClass('down');
+            $('.optionsBut').html('close');
+            clickedOpt = 1;
+        }
+        else {
+            if (clickedOpt == 1) {
+                $('.optionsBlock').animate({
+                    top: -515
+                }, 200, function () {
+                    $('.optionsBlock').removeClass('down');
+                    clickedOpt = 0;
+                });
+                $('.optionsBut').html('options');
+            }
+        }
     });
-    $('body').on("click", ".optionsClose", function () {
-        $('.optionsBlock').slideUp();
+    $('body').on("mouseenter", ".optionsBut", function () {
+        if (clickedOpt == 0) {
+            $('.optionsBlock').css('top', "+=3")
+
+        }
     });
+    $('body').on("mouseleave", ".optionsBut", function () {
+        if (clickedOpt == 0) {
+            $('.optionsBlock').css('top', -515)
+        }
+    });
+
     // ARRAYS
 
     var ruPronouns = new Array("я" ,"ты" ,"мы" ,"они" ,"он" ,"она"),
@@ -241,6 +271,7 @@ $(function(){
             else {
                 if (clicked = 1) {
                     if ((simpGen['enPhrase']).toLocaleLowerCase() != (parsePhrase().toLocaleLowerCase())) {
+                        $('.enPhrase').attr("placeholder", "");
                         $('.enPhrase').removeClass("true").addClass("false");
                         iFalse++;
                         $('.iFalse').fadeIn().html(iFalse);

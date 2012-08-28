@@ -17,6 +17,7 @@ body {
     background-color: #f0f0f0;
     padding: 2px 8px;
     width: 293px;
+    text-shadow: 0 1px 0 white;
 }
 .enPhrase {
     background-color: #f0f0f0;
@@ -27,6 +28,7 @@ body {
     margin: 0;
     margin-top: 3px;
     outline: none;
+    text-shadow: 0 1px 0 white;
 }
 .enPhrase:focus {
     background-color: #e9e4f0;
@@ -47,6 +49,7 @@ body {
     margin-left: 3px;
     text-decoration: none;
     color: white;
+    text-shadow: 0 1px 0 black;
     background-color: black;
     -webkit-user-select: none;
     user-select: none;
@@ -73,6 +76,7 @@ body {
     vertical-align: middle;
     text-align: center;
     display: none;
+    text-shadow: 0 1px 0 white;
 }
 .iFalse {
     left: -33px; top: 0;
@@ -81,6 +85,7 @@ body {
     vertical-align: middle;
     text-align: center;
     display: none;
+    text-shadow: 0 1px 0 white;
 }
 /******************************************************************************************************* optionsBlock */
 .optionsBlock {
@@ -89,22 +94,24 @@ body {
     width: 800px;
     position: absolute;
     left: 50%; margin-left: -400px;
-    top: 10px;
-    box-shadow: 0 0 700px 50px rgba(0, 0, 130, 0.2);
-    display: none;
-    border: 1px solid #c9c9c9;
+    top: -515px;
+}
+.optionsBlock.down {
+    box-shadow: -3px 5px 24px 10px rgba(0, 0, 0, 0.2);
+}
+.optionsBut.down {
+    box-shadow: -3px 10px 14px 1px rgba(0, 0, 0, 0.2);
 }
 .optionsBlockInner {
     padding: 10px;
 }
-.optionsClose {
+.optionsBut {
     position: absolute;
-    bottom: 0; right: 0;
-}
-.options {
-    position: absolute;
-    right: 0; top: -10px;
-    margin: 0;
+    bottom: -22px; right: 0;
+    width: 66px;
+    padding: 1px 0;
+    text-align: center;
+    /*margin: 0;*/
 }
 .optionsBlock h3 {
     font-size: 15px;
