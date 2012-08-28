@@ -1,8 +1,7 @@
 {
     "name": "Verbs Trainer",
     "description": "Verbs trainer",
-    "version": "0.121",
-    "options_page": "options.html",
+    "version": "0.13",
     "icons": {
         "16": "img/16.png",
         "128": "img/128.png"
