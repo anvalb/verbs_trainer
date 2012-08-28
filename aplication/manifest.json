@@ -1,7 +1,7 @@
 {
-    "name": "Lang English",
-    "description": "Lang English aplication",
-    "version": "0.1",
+    "name": "Verbs trainer",
+    "description": "Verbs trainer",
+    "version": "0.11",
     "options_page": "options.html",
     "icons": {
         "16": "img/16.png",
