@@ -1,0 +1,20 @@
+{
+    "name": "Lang English",
+    "description": "Lang English aplication",
+    "version": "0.1",
+    "options_page": "options.html",
+    "icons": {
+        "16": "img/16.png",
+        "128": "img/128.png"
+    },
+    "permissions": [
+        "unlimited_storage",
+        "notifications"
+    ],
+    "app": {
+        "launch": {
+            "local_path": "index.html"
+        }
+    },
+    "manifest_version": 2
+}
