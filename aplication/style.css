@@ -94,6 +94,9 @@ body {
     display: none;
     border: 1px solid #c9c9c9;
 }
+.optionsBlockInner {
+    padding: 10px;
+}
 .optionsClose {
     position: absolute;
     bottom: 0; right: 0;
@@ -102,6 +105,26 @@ body {
     position: absolute;
     right: 0; top: -10px;
     margin: 0;
+}
+.optionsBlock h3 {
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.optionsBlock input[type="radio"] {
+    margin-left: 1px;
+    padding-top: 5px;
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+.optionsBlock #darkStyle {
+    margin-left: 10px;
+}
+.optionsBlock label {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
 }
 /*********************************************************************************************************** clearfix */
 .clearfix:after {
