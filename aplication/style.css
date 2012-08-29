@@ -43,8 +43,7 @@ body {
 }
 .but {
     display: inline-block;
-    border: 1px solid black;
-    padding: 1px 10px;
+    padding: 2px 11px;
     margin-top: 3px;
     margin-left: 3px;
     text-decoration: none;
@@ -56,6 +55,9 @@ body {
 }
 .but:hover {
     background-color: #414141;
+}
+.but:active {
+    background-color: #e90074;
 }
 .ok {
     width: 50px;
@@ -90,11 +92,9 @@ body {
 /******************************************************************************************************* optionsBlock */
 .optionsBlock {
     background-color: white;
-    height: 500px;
     width: 800px;
     position: absolute;
     left: 50%; margin-left: -400px;
-    top: -515px;
 }
 .optionsBlock.down {
     box-shadow: -3px 5px 24px 10px rgba(0, 0, 0, 0.2);
@@ -109,7 +109,7 @@ body {
     position: absolute;
     bottom: -22px; right: 0;
     width: 66px;
-    padding: 1px 0;
+    padding: 2px 0;
     text-align: center;
     /*margin: 0;*/
 }
@@ -132,6 +132,54 @@ body {
     -webkit-user-select: none;
     user-select: none;
     cursor: pointer;
+}
+.verbsOutput {
+    height: 200px;
+    position: relative;
+    display: none;
+    width: 800px;
+    left: -10px;
+    background-color: #fafafa;
+}
+.enterVerb {
+    margin-right: 0;
+    outline: none;
+    border:1px solid #8c8c8c;
+    padding: 2px 5px;
+
+}
+.enterVerb:focus {
+    border:1px solid black;
+}
+.check {
+    margin-left: -1px;
+}
+.verbsOutput .transInp {
+    border: none;
+    font-size: 14px;
+    padding-left: 3px;
+    background-color: #F0F0F0;
+    outline: none;
+}
+.verbsOutput .verbsOutputPast,
+.verbsOutput .verbsOutputPresent,
+.verbsOutput .verbsOutputFuture  {
+    background-color: #efefef;
+    padding: 5px 10px;
+    width: 200px;
+    position: absolute;
+    top: 15px; left: 0;
+    display: none;
+}
+.verbsOutput .verbsOutputPresent {
+    left: 282px
+}
+.verbsOutput .verbsOutputFuture {
+    right: 0; left: auto;
+}
+.verbsOutput h4 {
+    font-weight: bold;
+    padding-bottom: 4px;
 }
 /*********************************************************************************************************** clearfix */
 .clearfix:after {

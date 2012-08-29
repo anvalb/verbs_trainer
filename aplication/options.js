@@ -6,7 +6,6 @@ $(function () {
     if (window.localStorage.lightStyle == null && window.localStorage.darkStyle == null) {
         window.localStorage.lightStyle = "true";
     }
-
     if (window.localStorage.lightStyle == "true") {
         $('#lightStyle').attr("checked", "checked");
     }
