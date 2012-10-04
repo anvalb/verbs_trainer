@@ -1,7 +1,9 @@
 $(function(){
 
     // VERBS DETECT
-    var newVerb = function (verb) {
+    var $body = $('body'),
+        $documentt = $(document),
+        newVerb = function (verb) {
         var st3 = verb.slice(-3),
             st2 = verb.slice(-2),
             verSprig = [],
@@ -266,7 +268,7 @@ $(function(){
 
 
 
-    $('body').on('click', '.check', function () {
+    $body.on('click', '.check', function () {
         var verbArr = newVerb($('.enterVerb').val());
         $('.verbsOutput').slideDown(300, function (){
             $('.verbsOutput > div').fadeIn(300);
@@ -284,7 +286,7 @@ $(function(){
     $('.optionsBlock').css('top', -(hblc + 15));
 
     var clickedOpt = 0;
-    $('body').on("click", ".optionsBut", function () {
+    $body.on("click", ".optionsBut", function () {
         if (clickedOpt == 0) {
             $('.optionsBlock').show().animate({
                 top: -14
@@ -309,7 +311,7 @@ $(function(){
         }
     });
 
-    $(document).on('click', function (event) {
+    $documentt.on('click', function (event) {
         if (clickedOpt == 1) {
             if (!$(event.target).closest('.optionsBlock').length) {
                 var hblc = $('.optionsBlock').height();
@@ -324,26 +326,14 @@ $(function(){
             }
         }
     });
-//    $(document).on('click', function (event) {
-//        if (!$(event.target).closest('.optionsBlock').length) {
-//            $('.optionsBlock').animate({
-//                top:-515
-//            }, 200, function () {
-//                $('.optionsBlock').removeClass('down');
-//                clickedOpt = 0;
-//                console.log(clickedOpt);
-//            });
-//            $('.optionsBut').html('options');
-//        }
-//    });
 
-    $('body').on("mouseenter", ".optionsBut", function () {
+    $body.on("mouseenter", ".optionsBut", function () {
         if (clickedOpt == 0) {
             $('.optionsBlock').css('top', "+=3")
 
         }
-    });
-    $('body').on("mouseleave", ".optionsBut", function () {
+    })
+    .on("mouseleave", ".optionsBut", function () {
         if (clickedOpt == 0) {
             var hblc = $('.optionsBlock').height();
             $('.optionsBlock').css('top', -(hblc + 15))
@@ -605,7 +595,7 @@ $(function(){
     var enterKey = function () {
         $('.ok').trigger("click");
     };
-    $(document).keydown(function (e) {
+    $documentt.keydown(function (e) {
         if (e.keyCode == 13 && typeof enterKey === 'function') {
             enterKey();
         }
